@@ -9,19 +9,8 @@ primary_region = "iad"
   min_machines_running = 1
   processes = ["app"]
 
-[env]
-  PORT = "5000"
-
 [[vm]]
   memory = "2gb"
   cpu_kind = "shared"
   cpus = 4
 
-[http_service.concurrency]
-  type = "connections"
-  hard_limit = 25  # Set a limit to prevent too many open connections
-  soft_limit = 20  # Soft limit for proactive management
-
-[http_service.rate_limit]
-  requests_per_second = 10  # Allow 10 requests per second
-  burst_limit = 20  # Allow a burst of 20 requests at a time
